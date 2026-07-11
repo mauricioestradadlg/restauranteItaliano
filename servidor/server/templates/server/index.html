@@ -31,84 +31,32 @@
         <nav class="navbar">
 
             <div class="logo">
-                <img
-                    src="{% static 'server/img/banderaItaliana.png' %}"
-                    alt="Bandera de Italia"
-                    class="logo-bandera"
-                >
-
+                <img src="{% static 'server/img/banderaItaliana.png' %}" alt="Bandera de Italia" class="logo-bandera">
                 <h1>Restaurante Italiano S.A. de C.V.</h1>
             </div>
 
-            <div
-                class="menu-toggle"
-                id="mobile-menu"
-                role="button"
-                tabindex="0"
-                aria-label="Abrir menú de navegación"
-                aria-expanded="false"
-            >
+            <div class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
 
             <div class="nav-content" id="nav-content">
-
                 <ul class="nav-links">
-                    <li>
-                        <a href="{% url 'inicio' %}">Inicio</a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'sucursales' %}">Sucursales</a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'nosotros' %}">Nosotros</a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'contacto' %}">Contacto</a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'trabajo' %}">
-                            Trabaja con Nosotros
-                        </a>
-                    </li>
+                    <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                    <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
+                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'trabajo' %}">Trabaja con Nosotros</a></li>
                 </ul>
 
                 <div class="nav-buttons">
-
-                    <a
-                        href="https://wa.me/528126228609"
-                        class="btn btn-whatsapp"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Pide por WhatsApp
-                    </a>
-
-                    <a
-                        href="{% url 'menu' %}"
-                        class="btn btn-menu"
-                    >
-                        Ver Menú
-                    </a>
-
-                    <a
-                        href="{% static 'server/docs/menuItaliano.pdf' %}"
-                        class="btn btn-pdf"
-                        download
-                    >
-                        Descargar PDF
-                    </a>
-
+                    <a href="https://wa.me/528126228609?" class="btn btn-whatsapp">Pide por WhatsApp</a>
+                    <a href="{% url 'menu' %}" class="btn btn-menu">Ver Menú</a>
+                    <a href="{% static 'server/docs/menuItaliano.pdf' %}" class="btn btn-pdf" download>Descargar Menú</a>
                 </div>
-
             </div>
 
         </nav>
-
+        
         <section class="carrusel-section">
 
             <div class="carrusel-contenedor">
