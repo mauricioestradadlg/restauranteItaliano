@@ -1,0 +1,45 @@
+# Variables de entorno y credenciales
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Base de datos local de Django
+db.sqlite3
+db.sqlite3-journal
+
+# Archivos generados por collectstatic
+staticfiles/
+
+# Archivos subidos por usuarios
+media/
+
+# Caché y pruebas
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Visual Studio Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.log
+*.tmp
