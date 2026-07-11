@@ -1,0 +1,470 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Italiano | Menú</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="{% static 'server/img/banderaItaliana.png' %}?v=2">
+
+<link rel="shortcut icon" type="image/png"
+      href="{% static 'server/img/banderaItaliana.png' %}?v=2">
+       
+    <link rel="stylesheet" href="{% static 'server/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+
+            <div class="logo">
+                <img src="{% static 'server/img/banderaItaliana.png' %}" alt="Bandera de Italia" class="logo-bandera">
+                <h1>Restaurante Italiano S.A. de C.V.</h1>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="nav-content" id="nav-content">
+                <ul class="nav-links">
+                    <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                    <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
+                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'trabajo' %}">Trabaja con Nosotros</a></li>
+                </ul>
+
+                <div class="nav-buttons">
+                    <a href="https://wa.me/528126228609?" class="btn btn-whatsapp">Pide por WhatsApp</a>
+                    <a href="{% url 'menu' %}" class="btn btn-menu">Ver Menú</a>
+                    <a href="{% static 'server/docs/menuItaliano.pdf' %}" class="btn btn-pdf" download>Descargar PDF</a>
+                </div>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <section class="hero">
+        <main class="hero-content">
+         
+            <h2>Nuestro Menú</h2>
+            <p>Selecciona una categoría para descubrir nuestros deliciosos platillos.</p>
+            
+            <div class="categorias-container">
+                
+                <div class="carta-categoria tab-btn activa" onclick="mostrarCategoria('pizzas')">
+                    <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=600&q=80" alt="Prosciutto e Funghi">
+                    <h4>Pizzas</h4>
+                </div>
+
+               
+                <div class="carta-categoria tab-btn" data-categoria="pastas" onclick="mostrarCategoria('pastas', this)">
+                    <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=600&q=80" alt="Spaghetti Carbonara">
+                    <h4>Pastas</h4>
+                </div>
+
+
+               
+                <div class="carta-categoria tab-btn" data-categoria="ensaladas" onclick="mostrarCategoria('ensaladas', this)">
+                    <img src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=600&q=80" alt="Ensalada César">
+                    <h4>Ensaladas</h4>
+                </div>
+
+                <div class="carta-categoria tab-btn" data-categoria="especialidades" onclick="mostrarCategoria('especialidades', this)">
+                    <img src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?auto=format&fit=crop&w=600&q=80" alt="Pollo a la Parmigiana">
+                    <h4>Especialidades</h4>
+                </div>
+
+                
+            </div>
+
+            <div class="menu-desplegable">
+
+                <div id="pizzas" class="categoria-contenido activa">
+                    <h3 class="titulo-seccion-menu">Nuestras Pizzas a la Leña</h3>
+                    <div class="platillos-grid">
+                        
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80" alt="Margarita Clásica">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Margarita Clásica</h4>
+                                    <span class="precio">$180</span>
+                                </div>
+                                <p>Salsa de tomate San Marzano, mozzarella fresca, albahaca y aceite de oliva extra virgen.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=600&q=80" alt="Pepperoni Especial">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Pepperoni Especial</h4>
+                                    <span class="precio">$210</span>
+                                </div>
+                                <p>Abundante pepperoni madurado, extra queso mozzarella y nuestro toque de especias italianas.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Quattro Formaggi">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Quattro Formaggi</h4>
+                                    <span class="precio">$240</span>
+                                </div>
+                                <p>Base blanca con mezcla perfecta de gorgonzola, parmesano, provolone y mozzarella.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=600&q=80" alt="Prosciutto e Funghi">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Prosciutto e Funghi</h4>
+                                    <span class="precio">$250</span>
+                                </div>
+                                <p>Jamón serrano finamente cortado, champiñones frescos, mozzarella y rúcula.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1573821663912-569905455b1c?auto=format&fit=crop&w=600&q=80" alt="Pizza Napoli">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Pizza Napoli</h4>
+                                    <span class="precio">$230</span>
+                                </div>
+                                <p>Mozzarella fresca, tomate cherry, anchoas y el toque original de orégano napolitano.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=600&q=80" alt="Pizza Carnívora">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Pizza Carnívora</h4>
+                                    <span class="precio">$260</span>
+                                </div>
+                                <p>Salami, pepperoni, salchicha italiana y tocino crujiente sobre nuestra base de pomodoro.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+<div id="pastas" class="categoria-contenido">
+                    <h3 class="titulo-seccion-menu">Pastas Frescas Hechas a Mano</h3>
+                    <div class="platillos-grid">
+                        
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1622973536968-3ead9e780960?auto=format&fit=crop&w=600&q=80" alt="Spaghetti Bolognese">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Spaghetti Bolognese</h4>
+                                    <span class="precio">$190</span>
+                                </div>
+                                <p>Auténtica salsa de carne molida cocinada a fuego lento por 4 horas y queso parmesano.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=600&q=80" alt="Fettuccine Alfredo">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Fettuccine Alfredo</h4>
+                                    <span class="precio">$210</span>
+                                </div>
+                                <p>Cremosa salsa de mantequilla y queso parmesano con pechuga de pollo a la parrilla.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=600&q=80" alt="Pasta al Pesto">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Pasta al Pesto</h4>
+                                    <span class="precio">$205</span>
+                                </div>
+                                <p>Rica mezcla de piñón, albahaca fresca, aceite de oliva y auténtico queso parmesano.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=600&q=80" alt="Spaghetti Carbonara">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Spaghetti Carbonara</h4>
+                                    <span class="precio">$205</span>
+                                </div>
+                                <p>Deliciosa salsa cremosa preparada con tocino crujiente, queso parmesano y especias.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=600&q=80" alt="Penne al Salmone">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Penne al Salmone</h4>
+                                    <span class="precio">$250</span>
+                                </div>
+                                <p>Pasta corta servida con trozos de salmón fresco, bañada en nuestra especial salsa rosé.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?auto=format&fit=crop&w=600&q=80" alt="Penne 4 Formaggi">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Penne 4 Formaggi</h4>
+                                    <span class="precio">$210</span>
+                                </div>
+                                <p>Pasta corta cubierta con una mezcla fundida de queso gorgonzola, gouda, mozzarella rallada y parmesano.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+ <div id="ensaladas" class="categoria-contenido">
+                    <h3 class="titulo-seccion-menu">Ensaladas Frescas</h3>
+                    <div class="platillos-grid">
+                        
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1529312266912-b33cfce2eefd?auto=format&fit=crop&w=600&q=80" alt="Ensalada Caprese">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Ensalada Caprese</h4>
+                                    <span class="precio">$150</span>
+                                </div>
+                                <p>Rodajas de tomate bola, mozzarella de búfala, albahaca fresca y reducción balsámica.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=600&q=80" alt="Ensalada César">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Ensalada César</h4>
+                                    <span class="precio">$175</span>
+                                </div>
+                                <p>Lechuga, tomate cherry, aceitunas, crotones, aceite de oliva y aderezo César de la casa.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=600&q=80" alt="Insalate Boscaiola">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Insalate Boscaiola</h4>
+                                    <span class="precio">$205</span>
+                                </div>
+                                <p>Lechuga, espárragos, palmitos, rollos de jamón con queso, aceitunas y vinagre balsámico.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Insalate Mixta">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Insalate Mixta</h4>
+                                    <span class="precio">$189</span>
+                                </div>
+                                <p>Lechuga, col morada, apio, aceitunas, alcachofas y rollitos de jamón y queso manchego.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Insalata Mediterránea">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Insalata Mediterránea</h4>
+                                    <span class="precio">$195</span>
+                                </div>
+                                <p>Mix de hojas verdes, jitomate deshidratado, aceitunas kalamata, suave queso de cabra, pepino y aderezo de finas hierbas.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?auto=format&fit=crop&w=600&q=80" alt="Insalata di Rucola">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Insalata di Rucola e Parmigiano</h4>
+                                    <span class="precio">$190</span>
+                                </div>
+                                <p>Hojas frescas de arúgula orgánica, lajas de queso parmesano reggiano, tomates cherry y reducción de balsámico de Módena.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+         <div id="especialidades" class="categoria-contenido">
+                    <h3 class="titulo-seccion-menu">Especialidades del Chef</h3>
+                    <div class="platillos-grid">
+                        
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80" alt="Filete Ferry">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Filete Ferry (200grs)</h4>
+                                    <span class="precio">$490</span>
+                                </div>
+                                <p>Exquisito filete de res al horno de leña, sobre espinacas baby, champiñón y balsámico.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1485921325833-c519f76c4927?auto=format&fit=crop&w=600&q=80" alt="Salmón Alcaparrado">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Salmón Alcaparrado</h4>
+                                    <span class="precio">$405</span>
+                                </div>
+                                <p>Delicioso lomo de salmón fresco preparado con nuestra receta secreta Napoli al horno de leña.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1709429790175-b02bb1b19207?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Lasagna de la Nonna">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Lasagna de la Nonna</h4>
+                                    <span class="precio">$230</span>
+                                </div>
+                                <p>Capas de pasta fresca, carne molida, salsa bechamel, mozzarella y pomodoro al horno.</p>
+                            </div>
+                        </div>
+
+                                             <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?auto=format&fit=crop&w=600&q=80" alt="Pollo a la Parmigiana">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Pechuga de Pollo Alfredo</h4>
+                                    <span class="precio">$260</span>
+                                </div>
+                                <p>Fresca pechuga de pollo a la plancha con champiñones bañada en nuestra salsa alfredo cremosa.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="platillo-card">
+                            <img src="https://images.unsplash.com/photo-1712407881629-a8ca82a3c64f?q=80&w=693&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Risotto de Champiñones">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Risotto de Champiñones</h4>
+                                    <span class="precio">$160</span>
+                                </div>
+                                <p>Cremoso risotto con el delicado sabor de los champiñones frescos y un toque de queso parmesano, una excelente especialidad.</p>
+                            </div>
+                        </div>
+
+                        <div class="platillo-card">
+                            <img src="https://plus.unsplash.com/premium_photo-1701098716731-198ffa4beed1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ravioles Palermo">
+                            <div class="platillo-info">
+                                <div class="platillo-header">
+                                    <h4>Ravioles Palermo</h4>
+                                    <span class="precio">$240</span>
+                                </div>
+                                <p>8 Piezas rellenas de carne y espinacas bañadas en nuestra salsa pomodoro rústica artesanal.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </section>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="URL_DE_TU_FACEBOOK" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="URL_DE_TU_INSTAGRAM" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <p>&copy; 2026 Restaurante Italiano S.A de C.V. Todos los derechos reservados.</p>
+    </footer>
+<script>
+   
+        
+        // Lógica del Menú Hamburguesa
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navContent = document.getElementById('nav-content');
+
+        mobileMenu.addEventListener('click', () => {
+            navContent.classList.toggle('activa');
+            
+            // Cambiar ícono de barras a 'X' cuando esté abierto
+            const icono = mobileMenu.querySelector('i');
+            if(navContent.classList.contains('activa')) {
+                icono.classList.remove('fa-bars');
+                icono.classList.add('fa-times');
+            } else {
+                icono.classList.remove('fa-times');
+                icono.classList.add('fa-bars');
+            }
+        });
+   
+
+
+    function mostrarCategoria(idCategoria, elementoSeleccionado = null, hacerScroll = false) {
+        const contenidos = document.querySelectorAll('.categoria-contenido');
+
+        contenidos.forEach(contenido => {
+            contenido.classList.remove('activa');
+        });
+
+        const botones = document.querySelectorAll('.tab-btn');
+
+        botones.forEach(boton => {
+            boton.classList.remove('activa');
+        });
+
+        const categoriaSeleccionada = document.getElementById(idCategoria);
+
+        if (categoriaSeleccionada) {
+            categoriaSeleccionada.classList.add('activa');
+        }
+
+        if (elementoSeleccionado) {
+            elementoSeleccionado.classList.add('activa');
+        } else {
+            const botonCategoria = document.querySelector(`.tab-btn[data-categoria="${idCategoria}"]`);
+
+            if (botonCategoria) {
+                botonCategoria.classList.add('activa');
+            }
+        }
+
+        if (hacerScroll) {
+            const menuDesplegable = document.querySelector('.menu-desplegable');
+
+            if (menuDesplegable) {
+                menuDesplegable.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const parametrosURL = new URLSearchParams(window.location.search);
+
+        const categoriaSeleccionada = parametrosURL.get('categoria');
+
+        if (categoriaSeleccionada) {
+            mostrarCategoria(categoriaSeleccionada, null, true);
+        }
+    });
+</script>
+</body>
+</html>

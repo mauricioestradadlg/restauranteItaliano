@@ -1,0 +1,434 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Restaurante Italiano</title>
+
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="{% static 'server/img/banderaItaliana.png' %}?v=2">
+
+<link rel="shortcut icon" type="image/png"
+      href="{% static 'server/img/banderaItaliana.png' %}?v=2">
+
+    <link
+        rel="stylesheet"
+        href="{% static 'server/css/styles.css' %}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <header class="header">
+
+        <nav class="navbar">
+
+            <div class="logo">
+                <img
+                    src="{% static 'server/img/banderaItaliana.png' %}"
+                    alt="Bandera de Italia"
+                    class="logo-bandera"
+                >
+
+                <h1>Restaurante Italiano S.A. de C.V.</h1>
+            </div>
+
+            <div
+                class="menu-toggle"
+                id="mobile-menu"
+                role="button"
+                tabindex="0"
+                aria-label="Abrir menú de navegación"
+                aria-expanded="false"
+            >
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="nav-content" id="nav-content">
+
+                <ul class="nav-links">
+                    <li>
+                        <a href="{% url 'inicio' %}">Inicio</a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'sucursales' %}">Sucursales</a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'nosotros' %}">Nosotros</a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'contacto' %}">Contacto</a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'trabajo' %}">
+                            Trabaja con Nosotros
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-buttons">
+
+                    <a
+                        href="https://wa.me/528126228609"
+                        class="btn btn-whatsapp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Pide por WhatsApp
+                    </a>
+
+                    <a
+                        href="{% url 'menu' %}"
+                        class="btn btn-menu"
+                    >
+                        Ver Menú
+                    </a>
+
+                    <a
+                        href="{% static 'server/docs/menuItaliano.pdf' %}"
+                        class="btn btn-pdf"
+                        download
+                    >
+                        Descargar PDF
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <section class="carrusel-section">
+
+            <div class="carrusel-contenedor">
+
+                <div class="carrusel-slide activa">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80"
+                        alt="Pizza a la leña"
+                    >
+
+                    <div class="carrusel-texto">
+                        <h2 class="h2-index">
+                            Auténtica Pizza a la Leña
+                        </h2>
+                    </div>
+
+                </div>
+
+                <div class="carrusel-slide">
+
+                    <img
+                        src="https://plus.unsplash.com/premium_photo-1664478288635-b9703a502393?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Pasta fresca"
+                    >
+
+                    <div class="carrusel-texto">
+                        <h2 class="h2-index">
+                            Pastas Tradicionales
+                        </h2>
+                    </div>
+
+                </div>
+
+                <div class="carrusel-slide">
+
+                    <img
+                        src="https://plus.unsplash.com/premium_photo-1661371455268-179e8c650f8a?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Interior rústico de restaurante italiano"
+                    >
+
+                    <div class="carrusel-texto">
+                        <h2 class="h2-index">
+                            El Mejor Ambiente Italiano
+                        </h2>
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-carrusel prev"
+                    onclick="mostrarSlide(-1)"
+                    aria-label="Imagen anterior"
+                >
+                    ❮
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-carrusel next"
+                    onclick="mostrarSlide(1)"
+                    aria-label="Imagen siguiente"
+                >
+                    ❯
+                </button>
+
+            </div>
+
+        </section>
+
+    </header>
+
+    <section class="hero">
+
+        <main>
+
+            <h2>Menú</h2>
+
+            <p>
+                <strong>
+                    Disfruta el auténtico sabor italiano con nuestras pizzas,
+                    pastas y especialidades.
+                </strong>
+            </p>
+
+            <div class="categorias-container">
+
+                <a
+                    href="{% url 'menu' %}"
+                    class="carta-categoria tab-btn activa enlace-categoria"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=600&q=80"
+                        alt="Prosciutto e Funghi"
+                    >
+
+                    <h4>Pizzas</h4>
+                </a>
+
+                <a
+                    href="{% url 'menu' %}?categoria=pastas"
+                    class="carta-categoria tab-btn enlace-categoria"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=600&q=80"
+                        alt="Spaghetti Carbonara"
+                    >
+
+                    <h4>Pastas</h4>
+                </a>
+
+                <a
+                    href="{% url 'menu' %}?categoria=ensaladas"
+                    class="carta-categoria tab-btn enlace-categoria"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=600&q=80"
+                        alt="Ensalada César"
+                    >
+
+                    <h4>Ensaladas</h4>
+                </a>
+
+                <a
+                    href="{% url 'menu' %}?categoria=especialidades"
+                    class="carta-categoria tab-btn enlace-categoria"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?auto=format&fit=crop&w=600&q=80"
+                        alt="Pollo a la Parmigiana"
+                    >
+
+                    <h4>Especialidades</h4>
+                </a>
+
+            </div>
+
+            <img
+                src="{% static 'server/img/restauranteItaliano.png' %}"
+                alt="Mesa con platillos típicos italianos"
+                class="imagen-banquete"
+            >
+
+            <div class="promociones-container">
+
+                <h3>Ofertas Especiales</h3>
+
+                <div class="promos-grid">
+
+                    <div class="promo-card">
+
+                        <div class="promo-badge">
+                            ¡2x1!
+                        </div>
+
+                        <h4>Martes de Pizza</h4>
+
+                        <p>
+                            Compra cualquier pizza grande y llévate la segunda
+                            de igual o menor precio totalmente gratis.
+                            ¡Ideal para compartir!
+                        </p>
+
+                        <a
+                            href="https://wa.me/528126228609"
+                            class="btn btn-whatsapp"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Pedir Promo
+                        </a>
+
+                    </div>
+
+                    <div class="promo-card">
+
+                        <div class="promo-badge">
+                            Familiar
+                        </div>
+
+                        <h4>Combo Famiglia</h4>
+
+                        <p>
+                            2 pizzas grandes, 1 pasta tradicional, ensalada
+                            mixta y refresco de 2 litros por solo $499.
+                            ¡Come toda la familia!
+                        </p>
+
+                        <a
+                            href="https://wa.me/528126228609"
+                            class="btn btn-whatsapp"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Pedir Promo
+                        </a>
+
+                    </div>
+
+                    <div class="promo-card">
+
+                        <div class="promo-badge">
+                            Cortesía
+                        </div>
+
+                        <h4>Jueves de Vino</h4>
+
+                        <p>
+                            En la compra de cualquier especialidad de pasta,
+                            recibe una copa de nuestro vino tinto de la casa
+                            totalmente en cortesía.
+                        </p>
+
+                        <a
+                            href="{% url 'menu' %}?categoria=pastas"
+                            class="btn btn-menu2"
+                        >
+                            Ver Menú
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </section>
+
+    <footer class="footer">
+
+        <div class="social-icons">
+
+            <a
+                href="URL_DE_TU_FACEBOOK"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+            >
+                <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a
+                href="URL_DE_TU_INSTAGRAM"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+            >
+                <i class="fab fa-instagram"></i>
+            </a>
+
+        </div>
+
+        <p>
+            &copy; 2026 Restaurante Italiano S.A de C.V.
+            Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+    <script>
+        let indiceSlide = 0;
+
+        const slides = document.querySelectorAll(".carrusel-slide");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const navContent = document.getElementById("nav-content");
+
+        function mostrarSlide(direccion) {
+            slides.forEach((slide) => {
+                slide.classList.remove("activa");
+            });
+
+            indiceSlide += direccion;
+
+            if (indiceSlide >= slides.length) {
+                indiceSlide = 0;
+            }
+
+            if (indiceSlide < 0) {
+                indiceSlide = slides.length - 1;
+            }
+
+            slides[indiceSlide].classList.add("activa");
+        }
+
+        function alternarMenu() {
+            navContent.classList.toggle("activa");
+
+            const menuAbierto = navContent.classList.contains("activa");
+            const icono = mobileMenu.querySelector("i");
+
+            mobileMenu.setAttribute(
+                "aria-expanded",
+                menuAbierto.toString()
+            );
+
+            if (menuAbierto) {
+                icono.classList.remove("fa-bars");
+                icono.classList.add("fa-times");
+            } else {
+                icono.classList.remove("fa-times");
+                icono.classList.add("fa-bars");
+            }
+        }
+
+        setInterval(() => {
+            mostrarSlide(1);
+        }, 5000);
+
+        mobileMenu.addEventListener("click", alternarMenu);
+
+        mobileMenu.addEventListener("keydown", (evento) => {
+            if (evento.key === "Enter" || evento.key === " ") {
+                evento.preventDefault();
+                alternarMenu();
+            }
+        });
+    </script>
+
+</body>
+</html>

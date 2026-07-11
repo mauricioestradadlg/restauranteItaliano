@@ -1,0 +1,112 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Italiano | Sobre Nosotros</title>
+   
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="{% static 'server/img/banderaItaliana.png' %}?v=2">
+
+<link rel="shortcut icon" type="image/png"
+      href="{% static 'server/img/banderaItaliana.png' %}?v=2">
+      
+    <link rel="stylesheet" href="{% static 'server/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="pagina-nosotros">
+    <header class="header">
+        <nav class="navbar">
+
+            <div class="logo">
+                <img src="{% static 'server/img/banderaItaliana.png' %}" alt="Bandera de Italia" class="logo-bandera">
+                <h1>Restaurante Italiano S.A. de C.V.</h1>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="nav-content" id="nav-content">
+                <ul class="nav-links">
+                    <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                    <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
+                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'trabajo' %}">Trabaja con Nosotros</a></li>
+                </ul>
+
+                <div class="nav-buttons">
+                    <a href="https://wa.me/528126228609?" class="btn btn-whatsapp">Pide por WhatsApp</a>
+                    <a href="{% url 'menu' %}" class="btn btn-menu">Ver Menú</a>
+                    <a href="{% static 'server/docs/menuItaliano.pdf' %}" class="btn btn-pdf" download>Descargar PDF</a>
+                </div>
+            </div>
+
+        </nav>
+
+    </header>
+
+    <section class="hero">
+        <main class="hero-content">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>Tradición, pasión y el verdadero sabor de Italia en cada bocado.</p>
+            
+            <div class="historia-container">
+                
+                <div class="historia-texto">
+                    <h3>De nuestra familia a tu mesa</h3>
+                    
+                    <p>Todo comenzó con una pasión compartida por la auténtica gastronomía italiana y el gran sueño de traer los verdaderos sabores de la Toscana a nuestra ciudad. Fundado en el vibrante año <strong>2026</strong>, <em>Restaurante Italiano S.A. de C.V.</em> nació en un pequeño y acogedor local, donde el aroma a albahaca fresca, tomates asados y masa recién horneada rápidamente cautivó a nuestros primeros visitantes.</p>
+                    
+                    <p>Nuestra filosofía desde el primer día ha sido innegociable: utilizar únicamente ingredientes de la más alta calidad, respetar celosamente las recetas familiares transmitidas de generación en generación y hornear nuestras pizzas a la leña, tal como manda la tradición napolitana. Cada plato de pasta que servimos es amasado a mano diariamente por nuestros chefs.</p>
+                    
+                    <p>Lo que empezó como un modesto emprendimiento en 2026, hoy se ha convertido en la cadena de comida italiana favorita de la región, contando orgullosamente con 16 sucursales para estar siempre cerca de ti. A pesar de nuestro rápido crecimiento, nuestra esencia sigue intacta.</p>
+                    
+                    <p>En Restaurante Italiano no solo servimos comida; creamos momentos memorables alrededor de la mesa. ¡Buon appetito!</p>
+                </div>
+
+                <div class="historia-imagen">
+                    <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=800&q=80" alt="Auténtico plato de pasta italiana">
+                </div>
+
+            </div>
+
+        </main>
+    </section>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="URL_DE_TU_FACEBOOK" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="URL_DE_TU_INSTAGRAM" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <p>&copy; 2026 Restaurante Italiano S.A de C.V. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+
+  <script>
+        
+        // Lógica del Menú Hamburguesa
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navContent = document.getElementById('nav-content');
+
+        mobileMenu.addEventListener('click', () => {
+            navContent.classList.toggle('activa');
+            
+            // Cambiar ícono de barras a 'X' cuando esté abierto
+            const icono = mobileMenu.querySelector('i');
+            if(navContent.classList.contains('activa')) {
+                icono.classList.remove('fa-bars');
+                icono.classList.add('fa-times');
+            } else {
+                icono.classList.remove('fa-times');
+                icono.classList.add('fa-bars');
+            }
+        });
+    </script>
+</html>

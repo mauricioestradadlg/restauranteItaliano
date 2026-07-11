@@ -1,0 +1,166 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Italiano | Trabajo</title>
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="{% static 'server/img/banderaItaliana.png' %}?v=2">
+
+<link rel="shortcut icon" type="image/png"
+      href="{% static 'server/img/banderaItaliana.png' %}?v=2">  
+    <link rel="stylesheet" href="{% static 'server/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="pagina-trabajo">
+<header class="header">
+        <nav class="navbar">
+
+            <div class="logo">
+                <img src="{% static 'server/img/banderaItaliana.png' %}" alt="Bandera de Italia" class="logo-bandera">
+                <h1>Restaurante Italiano S.A. de C.V.</h1>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="nav-content" id="nav-content">
+                <ul class="nav-links">
+                    <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                    <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
+                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'trabajo' %}">Trabaja con Nosotros</a></li>
+                </ul>
+
+                <div class="nav-buttons">
+                    <a href="https://wa.me/528126228609?" class="btn btn-whatsapp">Pide por WhatsApp</a>
+                    <a href="{% url 'menu' %}" class="btn btn-menu">Ver Menú</a>
+                    <a href="{% static 'server/docs/menuItaliano.pdf' %}" class="btn btn-pdf" download>Descargar PDF</a>
+                </div>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <section class="hero">
+        <main class="hero-content">
+            
+            <h2>TRABAJA CON NOSOTROS</h2>
+            <p>¡Únete a nuestro equipo!</p>
+            
+            <div class="contacto-container">
+                {% if messages %}
+                    <div class="mensajes-formulario">
+                        {% for message in messages %}
+                            <p class="mensaje {{ message.tags }}">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if form.errors %}
+                    <div class="mensajes-formulario">
+                        <p class="mensaje error">Revisa los datos marcados antes de volver a enviar.</p>
+                        <ul class="lista-errores">
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                <form action="{% url 'trabajo' %}" method="POST" class="formulario-contacto">
+                    {% csrf_token %}
+
+                    <div class="input-group campo-trampa" aria-hidden="true">
+                        <label for="website">No llenar este campo</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" maxlength="120"
+                               value="{{ request.POST.nombre|default:'' }}"
+                               placeholder="Escribe tu nombre completo" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" maxlength="254"
+                               value="{{ request.POST.email|default:'' }}"
+                               placeholder="tu@email.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="sucursal">¿En qué sucursal te gustaría trabajar?</label>
+                        <select id="sucursal" name="sucursal" required>
+                            <option value="" disabled {% if not request.POST.sucursal %}selected{% endif %}>Selecciona una opción...</option>
+                            <option value="monterrey" {% if request.POST.sucursal == "monterrey" %}selected{% endif %}>Sucursal Monterrey</option>
+                            <option value="san_pedro" {% if request.POST.sucursal == "san_pedro" %}selected{% endif %}>Sucursal San Pedro</option>
+                            <option value="santiago" {% if request.POST.sucursal == "santiago" %}selected{% endif %}>Sucursal Santiago</option>
+                            <option value="santa_catarina" {% if request.POST.sucursal == "santa_catarina" %}selected{% endif %}>Sucursal Santa Catarina</option>
+                            <option value="cumbres" {% if request.POST.sucursal == "cumbres" %}selected{% endif %}>Sucursal Cumbres</option>
+                            <option value="apodaca" {% if request.POST.sucursal == "apodaca" %}selected{% endif %}>Sucursal Apodaca</option>
+                            <option value="guadalupe" {% if request.POST.sucursal == "guadalupe" %}selected{% endif %}>Sucursal Guadalupe</option>
+                            <option value="san_nicolas" {% if request.POST.sucursal == "san_nicolas" %}selected{% endif %}>Sucursal San Nicolás</option>
+                            <option value="escobedo" {% if request.POST.sucursal == "escobedo" %}selected{% endif %}>Sucursal Escobedo</option>
+                            <option value="valle_alto" {% if request.POST.sucursal == "valle_alto" %}selected{% endif %}>Sucursal Valle Alto</option>
+                            <option value="contry" {% if request.POST.sucursal == "contry" %}selected{% endif %}>Sucursal Contry</option>
+                            <option value="linda_vista" {% if request.POST.sucursal == "linda_vista" %}selected{% endif %}>Sucursal Linda Vista</option>
+                            <option value="san_jeronimo" {% if request.POST.sucursal == "san_jeronimo" %}selected{% endif %}>Sucursal San Jerónimo</option>
+                            <option value="mitras" {% if request.POST.sucursal == "mitras" %}selected{% endif %}>Sucursal Mitras</option>
+                            <option value="pueblo_serena" {% if request.POST.sucursal == "pueblo_serena" %}selected{% endif %}>Sucursal Pueblo Serena</option>
+                            <option value="centro" {% if request.POST.sucursal == "centro" %}selected{% endif %}>Sucursal Centro</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-menu2 btn-enviar">Enviar Solicitud</button>
+                </form>
+            </div>
+
+        </main>
+    </section>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="URL_DE_TU_FACEBOOK" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="URL_DE_TU_INSTAGRAM" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <p>&copy; 2026 Restaurante Italiano S.A de C.V. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        
+        // Lógica del Menú Hamburguesa
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navContent = document.getElementById('nav-content');
+
+        mobileMenu.addEventListener('click', () => {
+            navContent.classList.toggle('activa');
+            
+            // Cambiar ícono de barras a 'X' cuando esté abierto
+            const icono = mobileMenu.querySelector('i');
+            if(navContent.classList.contains('activa')) {
+                icono.classList.remove('fa-bars');
+                icono.classList.add('fa-times');
+            } else {
+                icono.classList.remove('fa-times');
+                icono.classList.add('fa-bars');
+            }
+        });
+    </script>
+
+</body>
+
+
+ 
+
+</html>

@@ -1,0 +1,257 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Italiano | Sucursales</title>
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="{% static 'server/img/banderaItaliana.png' %}?v=2">
+
+<link rel="shortcut icon" type="image/png"
+      href="{% static 'server/img/banderaItaliana.png' %}?v=2"> 
+    <link rel="stylesheet" href="{% static 'server/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body  class="pagina-sucursales">
+    <header class="header">
+        <nav class="navbar">
+
+            <div class="logo">
+                <img src="{% static 'server/img/banderaItaliana.png' %}" alt="Bandera de Italia" class="logo-bandera">
+                <h1>Restaurante Italiano S.A. de C.V.</h1>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="nav-content" id="nav-content">
+                <ul class="nav-links">
+                    <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                    <li><a href="{% url 'sucursales' %}">Sucursales</a></li>
+                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'trabajo' %}">Trabaja con Nosotros</a></li>
+                </ul>
+
+                <div class="nav-buttons">
+                    <a href="https://wa.me/528126228609?" class="btn btn-whatsapp">Pide por WhatsApp</a>
+                    <a href="{% url 'menu' %}" class="btn btn-menu">Ver Menú</a>
+                    <a href="{% static 'server/docs/menuItaliano.pdf' %}" class="btn btn-pdf" download>Descargar PDF</a>
+                </div>
+            </div>
+
+        </nav>
+
+    </header>
+
+    <section class="hero">
+        <main class="hero-content">
+            <h2>NUESTRAS SUCURSALES</h2>
+            <p>Encuentra tu rincón italiano más cercano. ¡Te estamos esperando!</p>
+            
+            <div class="mapa-contenedor">
+    <iframe src="https://www.google.com/maps/d/embed?mid=1Y7maJjJemQVodPvZQ73nDwef-iDpE44&ehbc=2E312F" class="mapa-recortado" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
+            <div class="categorias-container">
+                
+                <div class="carta-sucursal">
+                    <h4>Sucursal Monterrey</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Constitución #450</p>
+                        <p class="sub-direccion">Col. Centro, Monterrey, N.L. C.P. 64000</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 1234 5678</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Av.+Constitucion+450+Centro+Monterrey+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal San Pedro</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Roble #120</p>
+                        <p class="sub-direccion">Valle del Campestre, San Pedro, N.L. C.P. 66265</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 8765 4321</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Av.+Roble+120+Valle+del+Campestre+San+Pedro+Garza+Garcia+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Santiago</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Calle Juárez #85</p>
+                        <p class="sub-direccion">Centro Histórico, Santiago, N.L. C.P. 67300</p>
+                        <p><i class="fas fa-phone"></i> Tel: 82 4455 6677</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Calle+Juarez+85+Centro+Historico+Santiago+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Sta Catarina</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Manuel Ordóñez #2300</p>
+                        <p class="sub-direccion">Centro, Santa Catarina, N.L. C.P. 66350</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 9988 7766</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Av.+Manuel+Ordonez+2300+Centro+Santa+Catarina+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Cumbres</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Paseo de los Leones #1500</p>
+                        <p class="sub-direccion">Cumbres 1er Sector, Monterrey, N.L. C.P. 64610</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 2233 4455</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Paseo+de+los+Leones+1500+Cumbres+Monterrey+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Apodaca</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Miguel Alemán #800</p>
+                        <p class="sub-direccion">Centro, Apodaca, N.L. C.P. 66600</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 5566 7788</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Miguel+Aleman+800+Centro+Apodaca+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Guadalupe</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Eloy Cavazos #3200</p>
+                        <p class="sub-direccion">Col. Camino Real, Guadalupe, N.L. C.P. 67170</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 6677 8899</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Av.+Eloy+Cavazos+3200+Camino+Real+Guadalupe+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal San Nicolás</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Universidad #100</p>
+                        <p class="sub-direccion">Col. Anáhuac, San Nicolás, N.L. C.P. 66450</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 7788 9900</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Av.+Universidad+100+Anahuac+San+Nicolas+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Escobedo</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Sendero Divisorio #450</p>
+                        <p class="sub-direccion">Privadas de Anáhuac, Escobedo, N.L.</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 1122 3344</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Av.+Sendero+Divisorio+450+Privadas+de+Anahuac+Escobedo+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Valle Alto</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Carretera Nacional Km 268</p>
+                        <p class="sub-direccion">La Estanzuela, Monterrey, N.L. C.P. 64984</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 3344 5566</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Carretera+Nacional+Km+268+La+Estanzuela+Monterrey" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Contry</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Eugenio Garza Sada #2800</p>
+                        <p class="sub-direccion">Col. Contry, Monterrey, N.L. C.P. 64860</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 4455 6677</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Av.+Eugenio+Garza+Sada+2800+Contry+Monterrey+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Linda Vista</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Miguel Alemán #1200</p>
+                        <p class="sub-direccion">Col. Linda Vista, Guadalupe, N.L. C.P. 67130</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 8899 0011</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Av.+Miguel+Aleman+1200+Linda+Vista+Guadalupe+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal San Jerónimo</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Blvd. Rogelio Cantú #500</p>
+                        <p class="sub-direccion">Col. San Jerónimo, Monterrey, N.L. C.P. 64640</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 2211 3344</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Blvd.+Rogelio+Cantu+500+San+Jeronimo+Monterrey+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Mitras</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Paseo de los Leones #200</p>
+                        <p class="sub-direccion">Col. Mitras Centro, Monterrey, N.L. C.P. 64460</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 6655 4433</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Av.+Paseo+de+los+Leones+200+Mitras+Centro+Monterrey+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Pueblo Serena</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Carretera Nacional #500 Local 12</p>
+                        <p class="sub-direccion">Valle Alto, Monterrey, N.L. C.P. 64989</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 9900 1122</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Carretera+Nacional+500+Valle+Alto+Monterrey+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+                <div class="carta-sucursal">
+                    <h4>Sucursal Centro</h4>
+                    <div class="sucursal-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Padre Mier #800</p>
+                        <p class="sub-direccion">Barrio Antiguo, Monterrey, N.L. C.P. 64000</p>
+                        <p><i class="fas fa-phone"></i> Tel: 81 3322 1100</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/Padre+Mier+800+Barrio+Antiguo+Monterrey+NL" target="_blank" class="btn btn-menu2">Ver en Mapa</a>
+                </div>
+
+            </div>
+        </main>
+    </section>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="URL_DE_TU_FACEBOOK" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="URL_DE_TU_INSTAGRAM" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2026 Restaurante Italiano S.A de C.V. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+ <script>
+        
+        // Lógica del Menú Hamburguesa
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navContent = document.getElementById('nav-content');
+
+        mobileMenu.addEventListener('click', () => {
+            navContent.classList.toggle('activa');
+            
+            // Cambiar ícono de barras a 'X' cuando esté abierto
+            const icono = mobileMenu.querySelector('i');
+            if(navContent.classList.contains('activa')) {
+                icono.classList.remove('fa-bars');
+                icono.classList.add('fa-times');
+            } else {
+                icono.classList.remove('fa-times');
+                icono.classList.add('fa-bars');
+            }
+        });
+    </script>
+
+
+</html>
