@@ -111,45 +111,37 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# =========================================
+# CONFIGURACIÓN DE LA API DE BREVO
+# =========================================
 
-EMAIL_HOST = os.getenv(
-    "DJANGO_EMAIL_HOST",
-    "smtp.gmail.com"
-)
+BREVO_API_URL = "https://api.brevo.com/v3/smtp/email"
 
-EMAIL_PORT = int(
+BREVO_API_KEY = os.getenv(
+    "BREVO_API_KEY",
+    ""
+).strip()
+
+BREVO_SENDER_EMAIL = os.getenv(
+    "BREVO_SENDER_EMAIL",
+    ""
+).strip()
+
+BREVO_SENDER_NAME = os.getenv(
+    "BREVO_SENDER_NAME",
+    "Restaurante Italiano"
+).strip()
+
+# Correo que recibe los datos internos de los formularios.
+# No se usa el remitente como valor predeterminado para evitar errores.
+EMAIL_EMPRESA = os.getenv(
+    "EMAIL_EMPRESA",
+    ""
+).strip()
+
+BREVO_TIMEOUT = int(
     os.getenv(
-        "DJANGO_EMAIL_PORT",
-        "587"
+        "BREVO_TIMEOUT",
+        "20"
     )
 )
-
-EMAIL_USE_TLS = (
-    os.getenv(
-        "DJANGO_EMAIL_USE_TLS",
-        "True"
-    ).lower() == "true"
-)
-
-EMAIL_HOST_USER = os.getenv(
-    "DJANGO_EMAIL_HOST_USER",
-    ""
-)
-
-EMAIL_HOST_PASSWORD = os.getenv(
-    "DJANGO_EMAIL_HOST_PASSWORD",
-    ""
-)
-
-DEFAULT_FROM_EMAIL = os.getenv(
-    "DJANGO_DEFAULT_FROM_EMAIL",
-    EMAIL_HOST_USER
-)
-
-EMAIL_DESTINO = os.getenv(
-    "DJANGO_EMAIL_DESTINO",
-    EMAIL_HOST_USER
-)
-
-EMAIL_TIMEOUT = 20
